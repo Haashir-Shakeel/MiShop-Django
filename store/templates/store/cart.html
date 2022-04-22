@@ -45,7 +45,7 @@
                         <img src="{% static 'images/arrow-down.png' %}" alt="" class="chg-quantity">
                     </div>
                 </div>
-                <div style="flex: 1;"><strong>Total</strong></div>
+                <div style="flex: 1;"><strong>{{item.get_total}}</strong></div>
 
             </div>
             {%endfor%}
