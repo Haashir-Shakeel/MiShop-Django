@@ -42,9 +42,10 @@ class Order(models.Model):
     
     @property
     def shipping(self):
+        shipping = False
         orderitems = self.orderitem_set.all()
         for item in orderitems:
-            if item.product.digital == 'False':
+            if item.product.digital == False:
                 shipping = True
         return shipping 
 

@@ -65,5 +65,11 @@
     </div>
 </div>
 
-
+<script>
+    var shipping = '{{order.shipping}}'
+// hiding the shipping info for digital products 
+    if (shipping == 'False'){
+        document.getElementById("shipping-info").innerHTML = ' '
+    }
+</script>
 {% endblock%}
