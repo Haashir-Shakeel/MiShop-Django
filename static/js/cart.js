@@ -6,5 +6,37 @@ for (var i = 0; i <updateBtns.length;i++){
         var action = this.dataset.action
         console.log('productId: ', productId, 'action: ',action)
 
+        console.log('User', user)
+
+        if (user === "AnonymousUser"){
+            console.log("not logged in")
+        }
+        else{
+            updateUserOrder(productId,action)
+        }
+
+    })
+}
+
+
+function updateUserOrder(productId,action){
+    
+    console.log("Authenticates user, sending data")
+
+    var url = '/updateItem/'
+
+    fetch(url,{
+        method: 'POST',
+        headers:{
+            'Content-Type':'application/json'
+        },
+        body:JSON.stringify({'productId':productId,'action':action})
+
+    })
+    .then((response)=>{
+        return response.json()
+    })
+    .then((data)=>{
+        console.log('data',data)
     })
 }
