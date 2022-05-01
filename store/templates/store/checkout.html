@@ -68,7 +68,7 @@
 
 <script>
     var shipping = '{{order.shipping}}'
-    var total = '{{order.total}}'
+    var total = '{{order.get_cart_total|floatformat:2}}'
 // hiding the shipping info for digital products 
     if (shipping == 'False'){
         document.getElementById("shipping-info").innerHTML = ' '

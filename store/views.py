@@ -1,4 +1,5 @@
 
+from urllib import request
 from django.shortcuts import render
 from .models import *
 from django.http import JsonResponse
@@ -81,3 +82,7 @@ def updateItem(request):
         orderItem.delete() 
 
     return JsonResponse('Item was Added',safe=False)
+
+
+def processOrder(request):
+    return JsonResponse('Payment submitted',safe=False)
