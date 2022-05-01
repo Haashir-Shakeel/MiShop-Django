@@ -68,6 +68,7 @@
 
 <script>
     var shipping = '{{order.shipping}}'
+    var total = '{{order.total}}'
 // hiding the shipping info for digital products 
     if (shipping == 'False'){
         document.getElementById("shipping-info").innerHTML = ' '
@@ -105,5 +106,35 @@
     function submitFormData(){
         console.log('Payment Button Clicked')
     }
+
+
+    // userFormData
+    var userFormData={
+        'name':null,
+        'email':null,
+        'total':total,
+    }
+    //shipping data
+    var shippingInfo = {
+        'address':null,
+        'city':null,
+        'state':null,
+        'zipcode':null,
+    }
+    //setting values when products need to be shipped
+    if (shipping!='False'){
+        shippingInfo.address=form.address.value
+        shippingInfo.city=form.city.value
+        shippingInfo.state=form.state.value
+        shippingInfo.zipcode=form.zipcode.value
+    }
+
+     //setting values when user is Anonymous
+     if (user =='AnonymousUser'){
+        userFormData.name=form.name.value
+        userFormData.email=form.email.value
+
+    }
+    
 </script>
 {% endblock%}
