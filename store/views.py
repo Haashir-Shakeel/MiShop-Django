@@ -97,4 +97,8 @@ def processOrder(request):
         total = float(data['form']['total'])
         order.transaction_id = transaction_id
     
+        #checking total is equal to total in backend
+        if total == order.get_cart_total:
+            order.complete = True
+        order.save() 
     return JsonResponse('Payment submitted',safe=False)
