@@ -1,5 +1,3 @@
-
-from urllib import request
 from django.shortcuts import render
 from .models import *
 from django.http import JsonResponse
@@ -85,4 +83,9 @@ def updateItem(request):
 
 
 def processOrder(request):
+    data =json.loads(request.body)
+    form = data['form']
+    shipping = data['shipping']
+    print('form:' , form)
+    print('shipping',shipping)
     return JsonResponse('Payment submitted',safe=False)
