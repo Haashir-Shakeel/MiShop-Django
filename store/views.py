@@ -81,8 +81,8 @@ def updateItem(request):
         orderItem.delete() 
 
     return JsonResponse('Item was Added',safe=False)
-
-
+from django.views.decorators.csrf import csrf_exempt
+@csrf_exempt
 def processOrder(request):
     transaction_id = datetime.datetime.now().timestamp()
     data =json.loads(request.body)
